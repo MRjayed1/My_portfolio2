@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=loops&utm_source=ai-legible&utm_medium=owned&utm_content=comment&utm_id=b495a372-816b-437a-95bf-6e2ba612065a
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hadiza Yusuf — AI & CPS Safety Researcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #faf8f4;
+      --warm-white: #fffefb;
+      --ink: #1c1a17;
+      --ink-muted: #5a5650;
+      --ink-light: #9a9590;
+      --accent: #c0622a;
+      --accent-light: #f5ede6;
+      --accent-mid: #e8a882;
+      --border: #e8e4de;
+      --border-soft: #f0ece6;
+      --green: #3a6b4a;
+      --green-light: #eaf2ec;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ── NAVIGATION ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(250, 248, 244, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 0.5px solid var(--border);
+      padding: 0 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 58px;
+    }
+
+    .nav-name {
+      font-family: 'Lora', serif;
+      font-size: 17px;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      display: flex; gap: 2rem; list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: var(--ink-muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-cta {
+      font-size: 12px;
+      background: var(--ink);
+      color: var(--cream) !important;
+      padding: 7px 16px;
+      border-radius: 20px;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--accent) !important; color: var(--cream) !important; }
+
+    /* ── HERO ── */
+    #about {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 100px 2.5rem 80px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 80px;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+      display: flex; align-items: center; gap: 10px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block; width: 28px; height: 1px; background: var(--accent);
+    }
+
+    h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-tagline {
+      font-size: 15px;
+      color: var(--ink-muted);
+      max-width: 480px;
+      margin-bottom: 1.8rem;
+      line-height: 1.75;
+      text-align: justify;
+    }
+
+    .hero-tags {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-bottom: 2.2rem;
+    }
+
+    .tag {
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 0.5px solid var(--border);
+      color: var(--ink-muted);
+      background: var(--warm-white);
+    }
+
+    .tag.accent {
+      background: var(--accent-light);
+      color: var(--accent);
+      border-color: var(--accent-mid);
+    }
+
+    .hero-actions {
+      display: flex; gap: 12px; flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 13px;
+      padding: 11px 24px;
+      border-radius: 25px;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover { background: #a0501f; transform: translateY(-1px); }
+
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: var(--ink);
+      font-size: 13px;
+      padding: 11px 24px;
+      border-radius: 25px;
+      border: 0.5px solid var(--border);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+
+    .btn-secondary:hover { border-color: var(--ink); transform: translateY(-1px); }
+
+    /* Hero card */
+    .hero-card {
+      background: var(--warm-white);
+      border: 0.5px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute; top: 0; right: 0;
+      width: 120px; height: 120px;
+      background: var(--accent-light);
+      border-radius: 0 20px 0 120px;
+    }
+
+    .hero-avatar {
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-light), var(--accent-mid));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Lora', serif;
+      font-size: 24px;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+      position: relative; z-index: 1;
+      overflow: hidden;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-card-name {
+      font-family: 'Lora', serif;
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 4px;
+      position: relative; z-index: 1;
+    }
+
+    .hero-card-role {
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 1.4rem;
+      position: relative; z-index: 1;
+    }
+
+    .stat-row {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 12px; margin-bottom: 1.4rem;
+    }
+
+    .stat-box {
+      background: var(--cream);
+      border-radius: 10px;
+      padding: 12px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Lora', serif;
+      font-size: 22px;
+      color: var(--ink);
+    }
+
+    .stat-label {
+      font-size: 10px;
+      color: var(--ink-light);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .hero-card-links {
+      display: flex; gap: 8px; flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .chip-link {
+      font-size: 11px;
+      padding: 5px 10px;
+      border-radius: 6px;
+      background: var(--cream);
+      color: var(--ink-muted);
+      text-decoration: none;
+      border: 0.5px solid var(--border);
+      transition: background 0.15s;
+    }
+
+    .chip-link:hover { background: var(--accent-light); color: var(--accent); }
+
+    /* ── SECTIONS ── */
+    section { padding: 80px 2.5rem; max-width: 1100px; margin: 0 auto; }
+
+    .section-divider {
+      width: 100%; height: 0.5px;
+      background: var(--border);
+      max-width: 1100px; margin: 0 auto;
+    }
+
+    .section-header {
+      display: flex; align-items: baseline; gap: 16px;
+      margin-bottom: 3rem;
+    }
+
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      min-width: 40px;
+    }
+
+    h2 {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 400;
+      color: var(--ink);
+    }
+
+    /* ── RESEARCH ── */
+    .research-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .research-card {
+      background: var(--warm-white);
+      border: 0.5px solid var(--border);
+      border-radius: 16px;
+      padding: 1.6rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .research-card:hover {
+      border-color: var(--accent-mid);
+      transform: translateY(-2px);
+    }
+
+    .research-card.featured {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 200px;
+      gap: 2rem;
+      align-items: center;
+      background: var(--accent-light);
+      border-color: var(--accent-mid);
+    }
+
+    .rc-badge {
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+      display: flex; align-items: center; gap: 6px;
+    }
+
+    .rc-badge .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .rc-title {
+      font-family: 'Lora', serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .rc-desc {
+      font-size: 13px;
+      color: var(--ink-muted);
+      line-height: 1.7;
+    }
+
+    .rc-meta {
+      font-size: 11px;
+      color: var(--ink-light);
+      margin-top: 14px;
+      display: flex; gap: 12px; flex-wrap: wrap;
+    }
+
+    .rc-meta span {
+      display: flex; align-items: center; gap: 4px;
+    }
+
+    .featured-aside {
+      text-align: center;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 12px;
+      border: 0.5px solid var(--accent-mid);
+    }
+
+    .featured-aside .big-num {
+      font-family: 'Lora', serif;
+      font-size: 2.5rem;
+      color: var(--accent);
+      display: block;
+    }
+
+    .featured-aside .aside-label {
+      font-size: 11px;
+      color: var(--ink-muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── PUBLICATIONS ── */
+    .pub-list { display: flex; flex-direction: column; gap: 0; }
+
+    .pub-item {
+      padding: 1.4rem 0;
+      border-bottom: 0.5px solid var(--border-soft);
+      transition: background 0.15s;
+    }
+
+    .pub-item:first-child { border-top: 0.5px solid var(--border-soft); }
+
+    .pub-title {
+      font-family: 'Lora', serif;
+      font-size: 15px;
+      color: var(--ink);
+      font-weight: 500;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .pub-meta {
+      font-size: 12px;
+      color: var(--ink-muted);
+      margin-bottom: 8px;
+    }
+
+    .pub-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+
+    .pub-tag {
+      font-size: 10px;
+      padding: 3px 9px;
+      border-radius: 4px;
+      background: var(--green-light);
+      color: var(--green);
+      border: 0.5px solid #c3ddc9;
+    }
+
+    /* ── TEACHING ── */
+    .teaching-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .teach-card {
+      background: var(--warm-white);
+      border: 0.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1.4rem;
+      transition: border-color 0.2s;
+    }
+
+    .teach-card:hover { border-color: var(--accent-mid); }
+
+    .teach-icon {
+      width: 36px; height: 36px;
+      background: var(--accent-light);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+
+    .teach-title {
+      font-family: 'Lora', serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .teach-where {
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+
+    .teach-desc {
+      font-size: 12px;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    /* ── TALKS ── */
+    .talks-list { display: flex; flex-direction: column; gap: 16px; }
+
+    .talk-item {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 1.4rem;
+      padding: 1.4rem;
+      background: var(--warm-white);
+      border: 0.5px solid var(--border);
+      border-radius: 14px;
+      transition: border-color 0.2s;
+    }
+
+    .talk-item:hover { border-color: var(--accent-mid); }
+
+    .talk-date {
+      font-size: 11px;
+      color: var(--ink-light);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding-top: 2px;
+      line-height: 1.5;
+    }
+
+    .talk-type {
+      display: inline-block;
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: var(--accent-light);
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .talk-title {
+      font-family: 'Lora', serif;
+      font-size: 15px;
+      color: var(--ink);
+      font-weight: 500;
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+
+    .talk-venue {
+      font-size: 12px;
+      color: var(--ink-muted);
+    }
+
+    /* ── NEWS ── */
+    .news-list { display: flex; flex-direction: column; gap: 14px; }
+
+    .news-item {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 1.2rem;
+      padding: 1.2rem 1.4rem;
+      background: var(--warm-white);
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .news-month {
+      font-size: 11px;
+      color: var(--ink-light);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding-top: 2px;
+    }
+
+    .news-text {
+      font-size: 14px;
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    .news-text a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .news-text a:hover { text-decoration: underline; }
+
+    /* ── BLOG ── */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 18px;
+    }
+
+    .blog-card {
+      background: var(--warm-white);
+      border: 0.5px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .blog-card:hover { transform: translateY(-3px); border-color: var(--accent-mid); }
+
+    .blog-header {
+      height: 90px;
+      background: var(--accent-light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 32px;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .blog-body { padding: 1.2rem; }
+
+    .blog-cat {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .blog-title {
+      font-family: 'Lora', serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+
+    .blog-excerpt {
+      font-size: 12px;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    .blog-footer {
+      padding: 0.8rem 1.2rem;
+      border-top: 0.5px solid var(--border-soft);
+      font-size: 11px;
+      color: var(--ink-light);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+
+    .blog-read {
+      font-size: 11px;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* ── CV ── */
+    .cv-section { margin-bottom: 2.5rem; }
+
+    .cv-section-title {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 1rem;
+      padding-bottom: 8px;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .cv-entry {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .cv-year {
+      font-size: 12px;
+      color: var(--ink-light);
+      padding-top: 2px;
+      line-height: 1.5;
+    }
+
+    .cv-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+
+    .cv-org {
+      font-size: 12px;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .cv-detail {
+      font-size: 12px;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    .cv-gpa {
+      display: inline-block;
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: var(--green-light);
+      color: var(--green);
+      border: 0.5px solid #c3ddc9;
+      margin-top: 4px;
+    }
+
+    .award-item {
+      display: flex; align-items: baseline; gap: 10px;
+      padding: 8px 0;
+      border-bottom: 0.5px solid var(--border-soft);
+      font-size: 13px;
+    }
+
+    .award-year {
+      font-size: 11px; color: var(--ink-light);
+      min-width: 36px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .skill-group-title {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .skill-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+
+    .skill-pill {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: var(--cream);
+      border: 0.5px solid var(--border);
+      color: var(--ink-muted);
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--ink);
+      color: var(--cream);
+      border-radius: 24px;
+      margin: 0 2rem 4rem;
+      max-width: 1060px;
+      margin-left: auto; margin-right: auto;
+      padding: 4rem;
+    }
+
+    #contact h2 { color: var(--cream); margin-bottom: 8px; }
+
+    .contact-sub {
+      font-size: 15px;
+      color: #9a9590;
+      margin-bottom: 3rem;
+      max-width: 500px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .contact-link-item {
+      display: flex; align-items: center; gap: 14px;
+      padding: 1rem 1.2rem;
+      background: rgba(255,255,255,0.05);
+      border: 0.5px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .contact-link-item:hover { background: rgba(192,98,42,0.15); border-color: var(--accent-mid); }
+
+    .contact-icon {
+      width: 38px; height: 38px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; flex-shrink: 0;
+    }
+
+    .contact-link-label {
+      font-size: 11px;
+      color: #666;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .contact-link-val {
+      font-size: 13px;
+      color: var(--cream);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 12px;
+      color: var(--ink-light);
+      border-top: 0.5px solid var(--border);
+      margin-top: 2rem;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-left > * {
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+    .hero-left > *:nth-child(2) { animation-delay: 0.2s; }
+    .hero-left > *:nth-child(3) { animation-delay: 0.3s; }
+    .hero-left > *:nth-child(4) { animation-delay: 0.4s; }
+    .hero-left > *:nth-child(5) { animation-delay: 0.5s; }
+
+    .hero-card { animation: fadeUp 0.6s ease 0.35s both; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 1.2rem; }
+      .nav-links { display: none; }
+      #about, section { padding: 80px 1.2rem 60px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .research-grid { grid-template-columns: 1fr; }
+      .research-card.featured { grid-template-columns: 1fr; }
+      .teaching-grid { grid-template-columns: 1fr; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .cv-entry { grid-template-columns: 1fr; gap: 4px; }
+      #contact { padding: 2.5rem 1.5rem; margin: 0 1rem 2rem; }
+      .skills-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="#about" class="nav-name">Hadiza Yusuf</a>
+  <ul class="nav-links">
+    <li><a href="#research">Research &amp; Projects</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#teaching">Teaching</a></li>
+    <li><a href="#talks">Talks</a></li>
+    <li><a href="#news">News</a></li>
+    <li><a href="#blog">Newsletter</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ABOUT / HERO -->
+<section id="about" style="padding-top: 100px;">
+  <div class="hero-grid">
+
+    <div class="hero-card">
+      <div class="hero-avatar">
+        <img src="assets/photo.jpg" alt="Hadiza Yusuf" style="width:100%; height:100%; object-fit:cover; border-radius:50%;" />
+      </div>
+      <p class="hero-card-name">Hadiza Umar Yusuf</p>
+      <p class="hero-card-role">AI &amp; CPS Safety Researcher</p>
+
+
+      <div class="hero-card-links">
+        <a href="mailto:hyusuf@umich.edu" class="chip-link">✉ Email</a>
+        <a href="https://www.linkedin.com/in/hyusuf7" target="_blank" class="chip-link">LinkedIn</a>
+        <a href="https://scholar.google.com/citations?user=zffZglgAAAAJ&hl=en&authuser=1" target="_blank" class="chip-link">Scholar</a>
+        <a href="https://github.com/Hadex-Pearl" target="_blank" class="chip-link">GitHub</a>
+      </div>
+    </div>
+
+    <div class="hero-left">
+      <p class="hero-eyebrow">PhD Candidate · University of Michigan-Dearborn</p>
+      <h1>Hadiza Umar Yusuf</h1>
+      <p class="hero-tagline">
+        I am a doctoral candidate in Computer & Information Sciences at the <strong>University of Michigan-Dearborn</strong> and a Graduate Research Assistant at the <strong>AISE-CPS Lab</strong>. I am passionate about the safety and reliability of AI systems, especially for cyber-physical systems that operate in the real world where failures have real consequences.
+        <br><br>
+        My research interests include <strong>AI Safety and Ethics</strong>, <strong>Falsification of AI-enabled Cyber-Physical Systems</strong>, <strong>Reinforcement Learning</strong>, and <strong>Trustworthy AI</strong>. I am also interested in the intersection of AI and education, specifically in improving access to learning through adaptive AI technologies.
+      </p>
+      <div class="hero-tags">
+        <span class="tag accent">AI Safety</span>
+        <span class="tag accent">Cyber-Physical Systems</span>
+        <span class="tag">Reinforcement Learning</span>
+        <span class="tag">Software Verification</span>
+        <span class="tag">Trustworthy AI</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#research" class="btn-primary">View My Research</a>
+        <a href="assets/Hadiza_Yusuf_CV.pdf" class="btn-secondary" target="_blank">Download CV</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- RESEARCH & PROJECTS -->
+<section id="research">
+  <div class="section-header">
+    <span class="section-label">01</span>
+    <h2>Research &amp; Projects</h2>
+  </div>
+
+  <div class="research-grid">
+    <div class="research-card featured">
+      <div>
+        <div class="rc-badge"><span class="dot"></span> Current — Active Research</div>
+        <p class="rc-title">Falsification of AI-enabled Cyber-Physical Systems</p>
+        <p class="rc-desc">Developing a falsification technique that combines stochastic optimization and reinforcement learning to improve fault detection in AI-enabled CPS. Conducting empirical analysis to categorize CPS models and identify verification challenges specific to AI systems.</p>
+        <div class="rc-meta">
+          <span>📍 University of Michigan-Dearborn</span>
+          <span>👩‍🏫 Supervisor: Prof. Khouloud Gaaloal</span>
+          <span>📅 Sept. 2024 – Present</span>
+        </div>
+      </div>
+      <div class="featured-aside">
+        <span class="big-num">CPS</span>
+        <span class="aside-label">Safety &amp; Verification</span>
+      </div>
+    </div>
+
+    <div class="research-card">
+      <div class="rc-badge">Completed · CASA Prize 2026</div>
+      <p class="rc-title">SafeAlert</p>
+      <p class="rc-desc">A pre-procurement AI safety evaluation kit for language models used in Nigerian fintech and mobile money contexts. Helps teams test whether a model refuses harmful fraud-generation requests and correctly classifies Nigerian fintech messages before deployment. Winner of the Africa AI Safety Prize Competition 2026.</p>
+      <div class="rc-meta">
+        <span>📅 2026 · 1st Place</span>
+        <span><a href="https://github.com/Hadex-Pearl/SafeAlert" target="_blank" style="color: var(--accent); text-decoration: none;">GitHub →</a></span>
+      </div>
+    </div>
+
+    <div class="research-card">
+      <div class="rc-badge">Completed · UM-D</div>
+      <p class="rc-title">Counterfactual-Guided Debugging of Cyber-Physical Systems (DeCaF)</p>
+      <p class="rc-desc">Developed a framework for debugging CPS using counterfactual-guided explanations that identify minimal input changes preventing system failures. Evaluated across multiple Simulink CPS benchmarks.</p>
+      <div class="rc-meta">
+        <span>👩‍🏫 Prof. Khouloud Gaaloal</span>
+        <span>📅 May – Aug. 2025 · Submitted</span>
+      </div>
+    </div>
+
+    <div class="research-card">
+      <div class="rc-badge">Completed · CMU Africa</div>
+      <p class="rc-title">Prosthetics Design for Low-Resource Environments</p>
+      <p class="rc-desc">Improving access to customized prosthetics using smartphone-based digital reconstruction and data-driven prediction of mechanical functionality in resource-constrained communities.</p>
+      <div class="rc-meta">
+        <span>👩‍🏫 Prof. Moise Busogi</span>
+        <span>📅 May 2023 – Aug. 2024</span>
+      </div>
+    </div>
+
+    <div class="research-card">
+      <div class="rc-badge">Completed · CMU Africa</div>
+      <p class="rc-title">Data-Driven Material Prediction for 3D Printing</p>
+      <p class="rc-desc">Predicted material properties of 3D-printed parts using multi-layer perceptron (MLP) models linking specimen test results, printing conditions, and geometry. Generated and pre-processed simulation data under varying parameters.</p>
+      <div class="rc-meta">
+        <span>👩‍🏫 Prof. Conrad Tucker</span>
+        <span>📅 Jan. – May 2024</span>
+      </div>
+    </div>
+
+    <div class="research-card">
+      <div class="rc-badge">Completed · CMU Africa</div>
+      <p class="rc-title">Adaptive Education for African Languages (ED-GPT)</p>
+      <p class="rc-desc">Constructed an LLM pipeline for context-based answer generation for high school STEM subjects in Kinyarwanda. Achieved 98% accuracy with sentence similarity evaluation.</p>
+      <div class="rc-meta">
+        <span>👩‍🏫 Prof. Azzizuddin Biyabani</span>
+        <span>📅 Oct. – Dec. 2023</span>
+      </div>
+    </div>
+
+    <div class="research-card">
+      <div class="rc-badge">Completed · CMU Africa</div>
+      <p class="rc-title">DTMF Demodulation using TinyML</p>
+      <p class="rc-desc">Designed an experiment for accurate DTMF signal decoding using power spectral analysis. Captured and processed real-time signals on Arduino Nano Sense BLE and Raspberry Pi.</p>
+      <div class="rc-meta">
+        <span>👩‍🏫 Prof. Mike Perkins</span>
+        <span>📅 May – Aug. 2023</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="section-header">
+    <span class="section-label">02</span>
+    <h2>Publications</h2>
+  </div>
+
+  <div class="pub-list">
+    <div class="pub-item">
+      <p class="pub-title">SiRL: Signal-Level Reinforcement Learning for Falsifying Cyber-Physical Systems</p>
+      <p class="pub-meta">Yusuf, H. U., Gaaloul, K., Dharmadhikari, A. · <em>ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA ’26)</em> · Accepted</p>
+      <div class="pub-tags"><span class="pub-tag">CPS</span><span class="pub-tag">Falsification</span><span class="pub-tag">Reinforcement Learning</span></div>
+    </div>
+
+    <div class="pub-item">
+      <p class="pub-title">Towards Counterfactual Explanation and Assertion Inference for CPS Debugging</p>
+      <p class="pub-meta">Ghazal, Z., Yusuf, H. U., Gaaloul, K. · <em>IEEE International Conference on Software Testing, Verification and Validation (ICST 2026)</em> · 2026</p>
+      <div class="pub-tags"><span class="pub-tag">CPS</span><span class="pub-tag">Debugging</span><span class="pub-tag">Counterfactual AI</span></div>
+    </div>
+
+    <div class="pub-item">
+      <p class="pub-title">Navigating the Shift: Architectural Transformations and Emerging Verification Demands in AI-Enabled Cyber-Physical Systems</p>
+      <p class="pub-meta">Yusuf, H. U., Gaaloul, K. · <em>IEEE/ACM 4th International Conference on AI Engineering – Software Engineering for AI (CAIN 2025)</em> · 2025</p>
+      <div class="pub-tags"><span class="pub-tag">AI Safety</span><span class="pub-tag">CPS Verification</span><span class="pub-tag">Software Engineering</span></div>
+    </div>
+
+    <div class="pub-item">
+      <p class="pub-title">Model-Based Verification for AI-Enabled Cyber-Physical Systems Through Guided Falsification of Temporal Logic Properties</p>
+      <p class="pub-meta">Yusuf, H. U. · <em>IEEE/ACM 4th International Conference on AI Engineering – Software Engineering for AI (CAIN 2025)</em> · 2025</p>
+      <div class="pub-tags"><span class="pub-tag">Falsification</span><span class="pub-tag">Temporal Logic</span><span class="pub-tag">CPS</span></div>
+    </div>
+
+    <div class="pub-item">
+      <p class="pub-title">Performance Assessment of Two Predesigned Programmable Integrated Circuits for Efficient Bioelectricity Harvesting from Soil Electroactive Microbes</p>
+      <p class="pub-meta">Simeon, M. I., Imoize, A. L., Yusuf, H. U. · <em>2025 IEEE Connecting the Unconnected Europe, Middle East, and Africa Regional Summit (CTUS-EMEA)</em> · 2025</p>
+      <div class="pub-tags"><span class="pub-tag">Bioelectricity</span><span class="pub-tag">Embedded Systems</span><span class="pub-tag">Energy Harvesting</span></div>
+    </div>
+
+    <div class="pub-item">
+      <p class="pub-title">Accessible Digital Reconstruction and Mechanical Prediction of 3D-Printed Prosthetics</p>
+      <p class="pub-meta">Lee, J., Nkama, C., Yusuf, H. U., et al. · <em>Journal of Mechanical Design, 147(6), 062001</em> · 2025</p>
+      <div class="pub-tags"><span class="pub-tag">Computer Vision</span><span class="pub-tag">Prosthetics</span><span class="pub-tag">Machine Learning</span></div>
+    </div>
+
+    <div class="pub-item">
+      <p class="pub-title">Increasing Accessibility of 3D-Printed Customized Prosthetics in Resource-Constrained Communities</p>
+      <p class="pub-meta">Lee, J., Nkama, C., Yusuf, H. U., et al. · <em>ASME International Design Engineering Technical Conferences (IDETC/CIE 2024)</em> · 2024</p>
+      <div class="pub-tags"><span class="pub-tag">3D Printing</span><span class="pub-tag">Accessibility</span><span class="pub-tag">Prosthetics</span></div>
+    </div>
+
+    <div class="pub-item">
+      <p class="pub-title">Inverse-Prediction of Material Property in Fused Filament Fabrication / Fused Deposition Modeling</p>
+      <p class="pub-meta">Lee, J., Yusuf, H. U., Tucker, C. · <em>ASME International Design Engineering Technical Conferences (IDETC/CIE 2024)</em> · 2024</p>
+      <div class="pub-tags"><span class="pub-tag">3D Printing</span><span class="pub-tag">Material Science</span><span class="pub-tag">Deep Learning</span></div>
+    </div>
+
+    <div class="pub-item">
+      <p class="pub-title">Towards Reliable DTMF Recognition: A TinyML Approach</p>
+      <p class="pub-meta">Yusuf, H., Perkins, M., Nkama, C. · <em>International Congress on Information and Communication Technology (ICICT 2024)</em> · 2024</p>
+      <div class="pub-tags"><span class="pub-tag">TinyML</span><span class="pub-tag">Signal Processing</span><span class="pub-tag">Edge AI</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- TEACHING -->
+<section id="teaching">
+  <div class="section-header">
+    <span class="section-label">03</span>
+    <h2>Teaching</h2>
+  </div>
+
+  <div class="teaching-grid">
+    <div class="teach-card">
+      <div class="teach-icon">📐</div>
+      <p class="teach-title">Applied Stochastic Processes</p>
+      <p class="teach-where">Carnegie Mellon University Africa · Fall 2023</p>
+      <p class="teach-desc">Graduate Teaching Assistant for 53 graduate students. Held weekly recitations, graded homework, and provided academic support.</p>
+    </div>
+    <div class="teach-card">
+      <div class="teach-icon">📊</div>
+      <p class="teach-title">Mathematics & Statistics</p>
+      <p class="teach-where">Federal University of Technology Minna · 2021–2022</p>
+      <p class="teach-desc">e-Tutor for 100 and 200-level computer science students. Average student rating: 4/5. Synchronous and asynchronous support.</p>
+    </div>
+    <div class="teach-card">
+      <div class="teach-icon">💻</div>
+      <p class="teach-title">Programming & Web Design</p>
+      <p class="teach-where">Merrion IT (New Horizons College) · 2020–2022</p>
+      <p class="teach-desc">Instructed 70+ high school students in Python, Blender, and web design. Guided hands-on project-based learning.</p>
+    </div>
+    <div class="teach-card">
+      <div class="teach-icon">🔢</div>
+      <p class="teach-title">BASIC Programming & Numerical Analysis</p>
+      <p class="teach-where">College of Education Katsina-Ala · 2019–2020</p>
+      <p class="teach-desc">Assisted in teaching, evaluating, and mentoring Computer Science students in BASIC, Microsoft Packages, and Numerical Analysis.</p>
+    </div>
+    <div class="teach-card">
+      <div class="teach-icon">🔬</div>
+      <p class="teach-title">Science (Chemistry, Basic Science & Technology)</p>
+      <p class="teach-where">Talented Heroes Academy · 2013</p>
+      <p class="teach-desc">Taught high school STEM subjects. Average student rating: 4.3/5.</p>
+    </div>
+    <div class="teach-card">
+      <div class="teach-icon">🤖</div>
+      <p class="teach-title">AI Systems Design (EdgeML Labs)</p>
+      <p class="teach-where">Carnegie Mellon University Africa · Summer 2023</p>
+      <p class="teach-desc">Developed and enhanced labs for the AI Systems Design course (EdgeML piece) as a graduate intern.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- TALKS -->
+<section id="talks">
+  <div class="section-header">
+    <span class="section-label">04</span>
+    <h2>Talks &amp; Presentations</h2>
+  </div>
+
+  <div class="talks-list">
+    <div class="talk-item">
+      <div class="talk-date">June<br>2026</div>
+      <div>
+        <span class="talk-type">Keynote Speaker</span>
+        <p class="talk-title">AI used in systems that require constant decision-making</p>
+        <p class="talk-venue">Encode Africa, AI Safety Action Weeks funded by Bluedot Impact · <a href="https://encodessa.org/initiatives/action-weeks" style="color: var(--accent); text-decoration: none;">Event Page</a></p>
+      </div>
+    </div>
+    <div class="talk-item">
+      <div class="talk-date">March<br>2026</div>
+      <div>
+        <span class="talk-type">Session Speaker</span>
+        <p class="talk-title">Emerging Trends in Verification of AI-enabled Cyber-Physical Systems</p>
+        <p class="talk-venue">International Conference on Machine Learning, Artificial Intelligence and Data Science · <a href="https://www.srcmeetings.com/profile/international-conference-on-machine-learning-artificial-intelligence-and-data-science-hadiza-umar-yusuf-1183.html" style="color: var(--accent); text-decoration: none;">Speaker Profile</a></p>
+      </div>
+    </div>
+    <div class="talk-item">
+      <div class="talk-date">Aug.<br>2022</div>
+      <div>
+        <span class="talk-type">Presenter</span>
+        <p class="talk-title">Searching for and Choosing Graduate Schools</p>
+        <p class="talk-venue">Ignite Research Academy Webinar · <a href="https://youtu.be/6KrBaZB36bE" style="color: var(--accent); text-decoration: none;">Watch Video</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- NEWS -->
+<section id="news">
+  <div class="section-header">
+    <span class="section-label">05</span>
+    <h2>News</h2>
+  </div>
+
+  <div class="news-list">
+    <div class="news-item">
+      <div class="news-month">Aug 2026</div>
+      <p class="news-text">🏆 <strong>SafeAlert</strong> won <strong>1st Place</strong> at the <a href="https://www.casa-ai.org/competition2026" target="_blank">Africa AI Safety Prize Competition 2026</a>, out of over 100 submissions — a prize competition focused on building practical safeguards for beneficial AI deployment across Africa.</p>
+    </div>
+    <div class="news-item">
+      <div class="news-month">Jul 2026</div>
+      <p class="news-text">🎉 Poster accepted at <strong>ISSTA 2026</strong> (ACM SIGSOFT International Symposium on Software Testing and Analysis).</p>
+    </div>
+    <div class="news-item">
+      <div class="news-month">Feb 2026</div>
+      <p class="news-text">🎉 Paper accepted at <strong>ICST 2026</strong> (IEEE International Conference on Software Testing, Verification and Validation) — <em>Towards Counterfactual Explanation and Assertion Inference for CPS Debugging (DeCaF)</em>, a framework that identifies minimal input changes to prevent failures in cyber-physical systems.</p>
+    </div>
+    <div class="news-item">
+      <div class="news-month">Jan 2026</div>
+      <p class="news-text">🎓 Advanced to <strong>PhD Candidate</strong> status in Computer &amp; Information Sciences at the University of Michigan-Dearborn.</p>
+    </div>
+    <div class="news-item">
+      <div class="news-month">Nov 2025</div>
+      <p class="news-text">✅ Passed my <strong>PhD qualifying exams</strong> in Computer &amp; Information Sciences at the University of Michigan-Dearborn.</p>
+    </div>
+    <div class="news-item">
+      <div class="news-month">Oct 2025</div>
+      <p class="news-text">🤝 Served as a <strong>Student Volunteer</strong> at the <strong>28th ACM/IEEE International Conference on Model Driven Engineering Languages and Systems (MODELS 2025)</strong> in Grand Rapids, MI — one of the premier venues for model-driven engineering research.</p>
+    </div>
+    <div class="news-item">
+      <div class="news-month">Sep 2025</div>
+      <p class="news-text">🎤 Invited as <strong>Session Speaker</strong> at the <a href="https://www.srcmeetings.com/profile/international-conference-on-machine-learning-artificial-intelligence-and-data-science-hadiza-umar-yusuf-1183.html" target="_blank">International Conference on Machine Learning, Artificial Intelligence and Data Science</a> — to present on <em>Emerging Trends in Verification of AI-enabled Cyber-Physical Systems</em>.</p>
+    </div>
+    <div class="news-item">
+      <div class="news-month">Aug 2025</div>
+      <p class="news-text">🙌 Joined the <strong>LifeWise Academy Dearborn</strong> as a <strong>Leadership Board Member</strong>, contributing to the mission of equipping students with character, wisdom, and a strong academic foundation.</p>
+    </div>
+    <div class="news-item">
+      <div class="news-month">Apr 2025</div>
+      <p class="news-text">🎓 Joined the <strong>Wolverine Mentors Collective (Graduate Students Edition)</strong> as a mentor, supporting early-career graduate students in navigating research, academia, and professional development at the University of Michigan.</p>
+    </div>
+    <div class="news-item">
+      <div class="news-month">Sep 2024</div>
+      <p class="news-text">🎉 Began my <strong>PhD in Computer &amp; Information Sciences</strong> at the <strong>University of Michigan-Dearborn</strong>, joining the <strong>AISE-CPS Lab</strong> under the supervision of Professor Khouloud Gaaloul. My doctoral research focuses on falsification and verification of AI-enabled Cyber-Physical Systems — funded by the <strong>National Science Foundation (NSF)</strong>.</p>
+    </div>
+    <div class="news-item">
+      <div class="news-month">May 2024</div>
+      <p class="news-text">📰 Featured in a <strong>Mastercard Foundation Impact Story</strong>: <a href="https://mastercardfdn.org/en/what-we-do/impact-stories/hadiza-yusuf-everyone-has-something-to-give-in-their-own-little-space/" target="_blank">"Everyone has something to give in their own little space"</a> — a story about my journey through academia, research, and giving back to communities across Africa.</p>
+    </div>
+    <div class="news-item">
+      <div class="news-month">May 2024</div>
+      <p class="news-text">🏆 Graduated from <strong>Carnegie Mellon University Africa</strong> with an MS in Engineering Artificial Intelligence, receiving two prestigious awards: the <strong>Lakshimi Subramanian CMU-Africa Student Excellence Award</strong> — recognising outstanding academic and research contributions — and the <strong>Mastercard Foundation Scholars Impact Award</strong>, celebrating scholars who demonstrate exceptional commitment to transforming Africa through their work and leadership.</p>
+    </div>
+    <div class="news-item">
+      <div class="news-month">Apr 2024</div>
+      <p class="news-text">🎊 Received admission to the <strong>PhD program in Computer &amp; Information Sciences</strong> at the <strong>University of Michigan-Dearborn</strong> — set to join the AISE-CPS Lab to work with Professor Khouloud Gaaloul on NSF-funded research in AI safety and cyber-physical systems verification.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- NEWSLETTER -->
+<section id="blog">
+  <div class="section-header">
+    <span class="section-label">06</span>
+    <h2>Newsletter</h2>
+  </div>
+
+  <p style="font-size: 15px; color: var(--ink-muted); max-width: 620px; margin-bottom: 2rem; line-height: 1.75;">
+    I write <strong>The AI Safety Brief</strong>; a LinkedIn weekly newsletter on AI safety, alignment, and ethics. The letter discusses different AI safety research papers, articles and incidences, to spur curiousity and open up ideas for those seeking research direction in AI safety.
+  </p>
+
+  <a href="https://www.linkedin.com/newsletters/the-ai-safety-brief-7444519042897522688/" target="_blank" class="btn-primary" style="margin-bottom: 3rem; display: inline-block;">
+    Subscribe on LinkedIn →
+  </a>
+
+  <div class="blog-grid">
+    <div class="blog-card">
+      <div class="blog-header">🛡️</div>
+      <div class="blog-body">
+        <p class="blog-cat">The AI Safety Brief</p>
+        <p class="blog-title">When You Lock the Gate but Leave the Fence Broken</p>
+        <p class="blog-excerpt">When AI safety alignment fails not through a direct attack, but through something as routine as a writing task — what does that tell us about how robust our safety tools really are?</p>
+      </div>
+      <div class="blog-footer">
+        <span>On LinkedIn</span>
+        <a href="https://www.linkedin.com/pulse/safe-sorry-when-you-lock-gate-leave-fence-broken-hadiza-yusuf-ofroc/?trackingId=tZ5I9ccNRqeyYH2Ud7yhEg%3D%3D" target="_blank" class="blog-read">Read →</a>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-header">⚙️</div>
+      <div class="blog-body">
+        <p class="blog-cat">The AI Safety Brief</p>
+        <p class="blog-title">The Model That Could Not Be Released</p>
+        <p class="blog-excerpt">Anthropic built a model capable enough to find decade-old security vulnerabilities on its own — and then decided not to release it. A closer look at what that decision reveals about where AI safety stands today.</p>
+      </div>
+      <div class="blog-footer">
+        <span>On LinkedIn</span>
+        <a href="https://www.linkedin.com/pulse/saturdays-safety-safe-sorry-hadiza-yusuf-tyxhc/?trackingId=W6VycYc%2FThy4delSuiqs8Q%3D%3D" target="_blank" class="blog-read">Read →</a>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-header">🤝</div>
+      <div class="blog-body">
+        <p class="blog-cat">The AI Safety Brief</p>
+        <p class="blog-title">Trustworthy AI is not just a technical problem</p>
+        <p class="blog-excerpt">Building AI systems people can trust involves more than good algorithms — it requires ethics, transparency, and accountability.</p>
+      </div>
+      <div class="blog-footer">
+        <span>Coming Soon</span>
+        <a href="https://www.linkedin.com/newsletters/the-ai-safety-brief-7444519042897522688/" target="_blank" class="blog-read">Read →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CONTACT -->
+<section id="contact" style="background: var(--ink); border-radius: 24px; max-width: 1060px; margin: 2rem auto 4rem; padding: 4rem; color: var(--cream);">
+  <div class="section-header" style="margin-bottom: 0.5rem;">
+    <span class="section-label" style="color: #444;">08</span>
+    <h2 style="color: var(--cream);">Get in Touch</h2>
+  </div>
+  <p class="contact-sub">I'm always open to research collaborations, speaking opportunities, and mentoring. Let's connect and see what we can build together.</p>
+
+  <div class="contact-grid">
+    <a href="mailto:hyusuf@umich.edu" class="contact-link-item">
+      <div class="contact-icon">✉</div>
+      <div>
+        <span class="contact-link-label">Email</span>
+        <span class="contact-link-val">hyusuf@umich.edu</span>
+      </div>
+    </a>
+    <a href="https://www.linkedin.com/in/hyusuf7" target="_blank" class="contact-link-item">
+      <div class="contact-icon">in</div>
+      <div>
+        <span class="contact-link-label">LinkedIn</span>
+        <span class="contact-link-val">linkedin.com/in/hyusuf7</span>
+      </div>
+    </a>
+    <a href="https://github.com/Hadex-Pearl" target="_blank" class="contact-link-item">
+      <div class="contact-icon">⌥</div>
+      <div>
+        <span class="contact-link-label">GitHub</span>
+        <span class="contact-link-val">Hadex-Pearl</span>
+      </div>
+    </a>
+    <a href="https://scholar.google.com/citations?user=zffZglgAAAAJ&hl=en&authuser=1" target="_blank" class="contact-link-item">
+      <div class="contact-icon">🎓</div>
+      <div>
+        <span class="contact-link-label">Google Scholar</span>
+        <span class="contact-link-val">Hadiza Yusuf</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© <span id="year"></span> Hadiza Umar Yusuf · Last updated: <span id="lastUpdated"></span></p>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  document.getElementById('lastUpdated').textContent = "August 7, 2026";
+  </script>
+</footer>
+
+</body>
+</html>
